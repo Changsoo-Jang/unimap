@@ -44,12 +44,11 @@ import matplotlib.pyplot as plt
 
 
 
-
 #####################################
 # ## 한글 폰트 설정
 # fpath = os.path.join(os.getcwd(), 'Nanum_Gothic/NanumGothic-Bold.ttf')
 # prop = fm.FontProperties(fname=fpath)
-plt.rcParams['font.family'] = "NanumGothic"
+plt.rcParams["font.family"] = 'NanumGothic'
 plt.rcParams['axes.unicode_minus'] = False
 
 ########################################################################
