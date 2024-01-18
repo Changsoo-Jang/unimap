@@ -3,7 +3,7 @@ import os
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-# from matplotlib import font_manager as fm 
+from matplotlib import font_manager as fm 
 # import seaborn as sns
 # import numpy as np 
 
@@ -42,15 +42,16 @@ import matplotlib.pyplot as plt
 # if __name__ == "__main__":
 #     main()
 
-
-
+font_name = fm.FontProperties(fname="NanumGothic.ttf").get_name()
+plt.rc('font', family=font_name)
+print(font_name)
 #####################################
 # ## 한글 폰트 설정
 # fpath = os.path.join(os.getcwd(), 'Nanum_Gothic/NanumGothic-Bold.ttf')
 # prop = fm.FontProperties(fname=fpath)
-plt.rcParams["font.family"] = 'NanumGothic'
-plt.rcParams['axes.unicode_minus'] = False
-
+# plt.rcParams["font.family"] = 'NanumGothic'
+# plt.rcParams['axes.unicode_minus'] = False
+# print(plt.rcParams["font.family"])
 ########################################################################
 uni_m_f_path = r"4년제일반대학교_등록금_좌표.xlsx"
 uni_m_df = pd.read_excel(uni_m_f_path,engine='openpyxl', header=0)
