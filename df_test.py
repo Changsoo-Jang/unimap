@@ -52,7 +52,7 @@ from matplotlib import font_manager as fm
 
 # 한글폰트작업
 # window의 폰트 위치 -> C:/Windows/Fonts/NGULIM.TTF
-font_name = fm.FontProperties(fname="C:/Windows/Fonts/NGULIM.TTF").get_name()
+font_name = fm.FontProperties(fname="ngulim.ttf").get_name()
 rc('font', family=font_name)
 plt.rcParams['axes.unicode_minus'] = False
 
