@@ -52,16 +52,16 @@ from matplotlib import font_manager as fm
 
 # 한글폰트작업
 # window의 폰트 위치 -> C:/Windows/Fonts/NGULIM.TTF
-font_name = fm.FontProperties(fname="ngulim.ttf").get_name()
-rc('font', family=font_name)
-plt.rcParams['axes.unicode_minus'] = False
+# font_name = fm.FontProperties(fname="ngulim.ttf").get_name()
+# rc('font', family=font_name)
+# plt.rcParams['axes.unicode_minus'] = False
 
 #####################################
 # ## 한글 폰트 설정
-# fpath = os.path.join(os.getcwd(), 'Nanum_Gothic/NanumGothic-Bold.ttf')
-# prop = fm.FontProperties(fname=fpath)
-# plt.rcParams["font.family"] = 'NanumGothic'
-# plt.rcParams['axes.unicode_minus'] = False
+fpath = os.path.join(os.getcwd(), 'NanumGothic.ttf')
+prop = fm.FontProperties(fname=fpath)
+plt.rcParams["font.family"] = 'NanumGothic'
+plt.rcParams['axes.unicode_minus'] = False
 # print(plt.rcParams["font.family"])
 ########################################################################
 uni_m_f_path = r"4년제일반대학교_등록금_좌표.xlsx"
