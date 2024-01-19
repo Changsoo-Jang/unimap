@@ -1,0 +1,8 @@
+custom_css = """
+<style>
+    /* Replace 'Agency FB' with the desired font family */
+    body {
+        font-family: 'NanumGothic', sans-serif;
+    }
+</style>
+"""
