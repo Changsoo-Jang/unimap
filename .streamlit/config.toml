@@ -6,6 +6,3 @@ custom_css = """
     }
 </style>
 """
-
-st.markdown(custom_css=True)
-
