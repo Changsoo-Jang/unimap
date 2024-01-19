@@ -3,9 +3,9 @@ import os
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib import rc
 from matplotlib import font_manager as fm 
-# import seaborn as sns
-# import numpy as np 
+
 
 ##################################################################
 
@@ -41,10 +41,21 @@ from matplotlib import font_manager as fm
 
 # if __name__ == "__main__":
 #     main()
+# fpath = os.path.join(os.getcwd(), 'NanumGothic.ttf')
+# if os.path.isfile(fpath):
+#     print('file exist')
 
-font_name = fm.FontProperties(fname="NanumGothic.ttf").get_name()
-plt.rc('font', family=font_name)
-print(font_name)
+# font_name = fm.FontProperties(fname="NanumGothic.ttf").get_name()
+# plt.rc('font', family=font_name)
+# print(font_name)
+
+
+# 한글폰트작업
+# window의 폰트 위치 -> C:/Windows/Fonts/NGULIM.TTF
+font_name = fm.FontProperties(fname="C:/Windows/Fonts/NGULIM.TTF").get_name()
+rc('font', family=font_name)
+plt.rcParams['axes.unicode_minus'] = False
+
 #####################################
 # ## 한글 폰트 설정
 # fpath = os.path.join(os.getcwd(), 'Nanum_Gothic/NanumGothic-Bold.ttf')
