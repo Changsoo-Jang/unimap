@@ -68,16 +68,25 @@ components.html("""
 #####################################
 # ## 한글 폰트 설정
 
+
+
+
+
+
 fpath1 = './NanumGothic.ttf'
 fpath2 = 'C:\\Windows\\Fonts\\NanumGothicBold.ttf'
+fpath3 = './NotoSansKR-Regular.ttf'
 prop30 = fm.FontProperties(fname=fpath2 , size=30)
 prop18 = fm.FontProperties(fname=fpath1 , size=18)
 prop9 = fm.FontProperties(fname=fpath1 , size=9)
 font_name = fm.FontProperties(fname=fpath1, size=10).get_name()
-# plt.rc('font', family='NanumGothic')
 
+kor_ft = {'font': fpath3}
+
+# plt.rc('font', family='NanumGothic')
 # plt.rcParams["font.family"] = 'NanumGothic'
 plt.rcParams['font.family'] = 'Noto Sans KR'
+
 plt.rcParams['axes.unicode_minus'] = False
 
 ########################################################################
@@ -111,9 +120,15 @@ fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
 # bars = ax.bar(data_df['등급'], data_df['학교명'])
 bars = ax.bar(uGrade_list, uName_list)
 
+
+# x축과 y축 레이블에 한글 폰트 적용
+ax.set_xticklabels(uGrade_list, fontproperties=prop9)
+ax.set_yticklabels(uName_list, fontproperties=prop9)
+
+##   그래프가 여러개 인 경우
 # ax.set_xlabel(uGrade_list[0], fontproperties=prop18)
 # ax.set_ylabel(uName_list[0], fontproperties=prop18)
-
+##   그래프가 하나인 경우
 plt.xlabel('대학 클래스', fontproperties=prop18)
 plt.ylabel('학교명', fontproperties=prop18)
 
