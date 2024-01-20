@@ -67,11 +67,14 @@ components.html("""
 
 #####################################
 # ## 한글 폰트 설정
-# fpath = os.path.join(os.getcwd(), 'NanumGothic.ttf')
-# prop = fm.FontProperties(fname=fpath)
+fpath1 = 'C:\\Windows\\Fonts\\NanumGothic.ttf'
+fpath2 = 'C:\\Windows\\Fonts\\NanumGothicBold.ttf'
+prop30 = fm.FontProperties(fname=fpath2 , size=30)
+prop18 = fm.FontProperties(fname=fpath2 , size=18)
+prop9 = fm.FontProperties(fname=fpath1 , size=9)
 plt.rcParams["font.family"] = 'NanumGothic'
 plt.rcParams['axes.unicode_minus'] = False
-# print(plt.rcParams["font.family"])ds
+print(plt.rcParams["font.family"])
 ########################################################################
 uni_m_f_path = r"4년제일반대학교_등록금_좌표.xlsx"
 uni_m_df = pd.read_excel(uni_m_f_path,engine='openpyxl', header=0)
@@ -80,14 +83,27 @@ filtered_df = uni_m_df
 data_df = filtered_df[['학교명','등급','주소']]
 uName_list = filtered_df['학교명'].to_list()
 
+
+########
+
+# plt.plot(range(50), data, 'r')
+# plt.title('시간별 가격 추이', fontproperties=fontprop)
+# plt.ylabel('주식 가격', fontproperties=fontprop)
+# plt.xlabel('시간(분)', fontproperties=fontprop)
+# plt.show()
+
+########
+
+
 st.title('전국 4년제 대학 레벨 :red[2024년] 기준')
+# # plt.title('전국 4년제 대학 레벨 [2024년] 기준', fontproperties=prop30)
 st.dataframe(data_df, use_container_width=True)
 
 fig, ax = plt.subplots()
 fig.set_figheight(50)  # 적절한 세로 크기로 설정
 fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
 bars = ax.bar(data_df['등급'], data_df['학교명'])
-
+plt.xlabel('대학 클래스', fontproperties=prop18 )
 # custom_css = """
 # <style>
 #     body {
@@ -99,7 +115,7 @@ bars = ax.bar(data_df['등급'], data_df['학교명'])
 
 for i, bar in enumerate(bars):
     yval = bar.get_height()
-    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', fontsize=9, rotation=45)
+    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', fontsize=9, rotation=45, fontproperties=prop9)
     # va: vertical alignment  # ha value for align; 'center', 'right', 'left'
 
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
