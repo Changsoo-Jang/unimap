@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 components.html("""
     <style>
     body {
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: 'NanumGothic', sans serif;
     }
     </style>
     """, height=0)
