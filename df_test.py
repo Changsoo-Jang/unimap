@@ -8,15 +8,15 @@ from matplotlib import font_manager as fm
 
 
 ##################################################################
-import streamlit.components.v1 as components
+# import streamlit.components.v1 as components
 
-components.html("""
-    <style>
-    body {
-        font-family: 'NanumGothic', sans serif;
-    }
-    </style>
-    """, height=0)
+# components.html("""
+#     <style>
+#     body {
+#         font-family: 'NanumGothic', sans serif;
+#     }
+#     </style>
+#     """, height=0)
 
 # def unique(list):
 #     x = np.array(list)
@@ -31,7 +31,6 @@ components.html("""
 #         fm.fontManager.addfont(font_file)
 #     fm._load_fontmanager(try_read_cache=False)
     
-
 # def main():
     
 #     fontRegistered()
