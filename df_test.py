@@ -67,7 +67,7 @@ components.html("""
 
 #####################################
 # ## 한글 폰트 설정
-fpath1 = 'C:\\Windows\\Fonts\\NanumGothic.ttf'
+fpath1 = './NanumGothic.ttf'
 fpath2 = 'C:\\Windows\\Fonts\\NanumGothicBold.ttf'
 prop30 = fm.FontProperties(fname=fpath2 , size=30)
 prop18 = fm.FontProperties(fname=fpath2 , size=18)
@@ -115,7 +115,7 @@ plt.xlabel('대학 클래스')
 
 for i, bar in enumerate(bars):
     yval = bar.get_height()
-    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', fontsize=9, rotation=45)
+    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', fontsize=9, rotation=45, fontproperties=prop9)
     # va: vertical alignment  # ha value for align; 'center', 'right', 'left'
 
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
