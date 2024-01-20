@@ -74,7 +74,7 @@ prop18 = fm.FontProperties(fname=fpath2 , size=18)
 prop9 = fm.FontProperties(fname=fpath1 , size=9)
 plt.rcParams["font.family"] = 'NanumGothic'
 plt.rcParams['axes.unicode_minus'] = False
-print(plt.rcParams["font.family"])
+# print(plt.rcParams["font.family"])
 ########################################################################
 uni_m_f_path = r"4년제일반대학교_등록금_좌표.xlsx"
 uni_m_df = pd.read_excel(uni_m_f_path,engine='openpyxl', header=0)
@@ -115,7 +115,7 @@ plt.xlabel('대학 클래스', fontproperties=prop18 )
 
 for i, bar in enumerate(bars):
     yval = bar.get_height()
-    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', fontsize=9, rotation=45, fontproperties=prop9)
+    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', fontsize=9, rotation=45)
     # va: vertical alignment  # ha value for align; 'center', 'right', 'left'
 
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
