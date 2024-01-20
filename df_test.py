@@ -72,8 +72,6 @@ prop9 = fm.FontProperties(fname=fpath1 , size=9)
 prop8 = fm.FontProperties(fname=fpath3 , size=8)
 font_name = fm.FontProperties(fname=fpath1, size=10).get_name()
 
-kor_ft = {'font': fpath3}
-
 # plt.rc('font', family='NanumGothic')
 # plt.rcParams["font.family"] = 'NanumGothic'
 # plt.rcParams['font.family'] = 'Noto Sans KR'
@@ -96,8 +94,9 @@ st.dataframe(data_df, use_container_width=True)
 fig, ax = plt.subplots()
 fig.set_figheight(50)  # 적절한 세로 크기로 설정
 fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
-bars = ax.bar(data_df['등급'], data_df['학교명'])
-#bars = ax.bar(uGrade_list, uName_list)
+
+bars = ax.bar(data_df['등급'], data_df['학교명'], bottom = 8)
+# bars = ax.barh(data_df['학교명'], data_df['등급'])
 
 # x축과 y축 눈금의 위치 설정
 # ax.set_xticks(range(len(data_df['등급'])))
@@ -111,19 +110,23 @@ ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
 # ax.set_xlabel(uGrade_list[0], fontproperties=prop18)
 # ax.set_ylabel(uName_list[0], fontproperties=prop18)
 
+
 ##   그래프가 하나인 경우
-plt.xlabel('[등급]    ', fontproperties=prop18)
+plt.xlabel('[등급]            ', fontproperties=prop18)
 plt.ylabel('학교명', fontproperties=prop18)
 yval = ''
 for i, bar in enumerate(bars):
-    yval = bar.get_height()
-    ax.text(bar.get_x(), data_df['학교명'][i], s=data_df['학교명'][i], va='bottom', color='RED', rotation=45, fontproperties=prop9)
+    yval = bar.get_height() * 1.06
+    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', rotation=45, fontproperties=prop9)
     # va: vertical alignment  # ha value for align; 'center', 'right', 'left'
 
 
-# y축의 범위를 설정
-plt.ylim(0, yval * 1.07 )  # 상단을 7% 비우기
 
+plt.show()
+
+ax.set_yticks(range(len(data_df['학교명'])))
+ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
+plt.ylim(0,bar.get_height() * 1.07)  # 상단을 7% 비우기
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
 st.pyplot(fig)
 
