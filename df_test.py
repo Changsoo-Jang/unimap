@@ -74,9 +74,10 @@ prop30 = fm.FontProperties(fname=fpath2 , size=30)
 prop18 = fm.FontProperties(fname=fpath1 , size=18)
 prop9 = fm.FontProperties(fname=fpath1 , size=9)
 font_name = fm.FontProperties(fname=fpath1, size=10).get_name()
-plt.rc('font', family='NanumGothic')
+# plt.rc('font', family='NanumGothic')
 
 # plt.rcParams["font.family"] = 'NanumGothic'
+plt.rcParams['font.family'] = 'Noto Sans KR'
 plt.rcParams['axes.unicode_minus'] = False
 
 ########################################################################
