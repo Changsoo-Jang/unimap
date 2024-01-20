@@ -65,10 +65,6 @@ from matplotlib import font_manager as fm
 
 #####################################
 # ## 한글 폰트 설정
-
-
-
-
 fpath1 = './NanumGothic.ttf'
 fpath2 = 'C:\\Windows\\Fonts\\NanumGothicBold.ttf'
 fpath3 = './NotoSansKR-Regular.ttf'
@@ -96,17 +92,6 @@ uName_list = filtered_df['학교명'].to_list()
 uGrade_list = filtered_df['등급'].to_list()
 
 
-########
-
-# plt.plot(range(50), data, 'r')
-# plt.title('시간별 가격 추이', fontproperties=fontprop)
-# plt.ylabel('주식 가격', fontproperties=fontprop)
-# plt.xlabel('시간(분)', fontproperties=fontprop)
-# plt.show()
-
-########
-
-
 st.title('전국 4년제 대학 레벨 :red[2024년] 기준')
 # # plt.title('전국 4년제 대학 레벨 [2024년] 기준', fontproperties=prop30)
 st.dataframe(data_df, use_container_width=True)
@@ -118,8 +103,9 @@ bars = ax.bar(data_df['등급'], data_df['학교명'])
 #bars = ax.bar(uGrade_list, uName_list)
 
 # x축과 y축 레이블에 한글 폰트 적용
-# ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
-# ax.set_yticklabels(data_df['학교명'], fontproperties=prop8)
+ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
+ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
+
 
 ##   그래프가 여러개 인 경우
 # ax.set_xlabel(uGrade_list[0], fontproperties=prop18)
