@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 from matplotlib import font_manager as fm 
 
-
 ##################################################################
 # import streamlit.components.v1 as components
 
@@ -56,7 +55,6 @@ from matplotlib import font_manager as fm
 # plt.rc('font', family=font_name)
 # print(font_name)
 
-
 # 한글폰트작업
 # window의 폰트 위치 -> C:/Windows/Fonts/NGULIM.TTF
 # font_name = fm.FontProperties(fname="ngulim.ttf").get_name()
@@ -91,7 +89,6 @@ data_df = filtered_df[['학교명','등급','주소']]
 uName_list = filtered_df['학교명'].to_list()
 uGrade_list = filtered_df['등급'].to_list()
 
-
 st.title('전국 4년제 대학 레벨 :red[2024년] 기준')
 # # plt.title('전국 4년제 대학 레벨 [2024년] 기준', fontproperties=prop30)
 st.dataframe(data_df, use_container_width=True)
@@ -104,25 +101,28 @@ bars = ax.bar(data_df['등급'], data_df['학교명'])
 
 # x축과 y축 눈금의 위치 설정
 # ax.set_xticks(range(len(data_df['등급'])))
-# ax.set_yticks(range(len(data_df['학교명'])))
+ax.set_yticks(range(len(data_df['학교명'])))
 
 # x축과 y축 레이블에 한글 폰트 적용
 # ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
 ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
-
 
 ##   그래프가 여러개 인 경우
 # ax.set_xlabel(uGrade_list[0], fontproperties=prop18)
 # ax.set_ylabel(uName_list[0], fontproperties=prop18)
 
 ##   그래프가 하나인 경우
-plt.xlabel('대학 클래스', fontproperties=prop18)
+plt.xlabel('[등급]    ', fontproperties=prop18)
 plt.ylabel('학교명', fontproperties=prop18)
-
+yval = ''
 for i, bar in enumerate(bars):
     yval = bar.get_height()
-    ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', rotation=45, fontproperties=prop9)
+    ax.text(bar.get_x(), data_df['학교명'][i], s=data_df['학교명'][i], va='bottom', color='RED', rotation=45, fontproperties=prop9)
     # va: vertical alignment  # ha value for align; 'center', 'right', 'left'
+
+
+# y축의 범위를 설정
+plt.ylim(0, yval * 1.07 )  # 상단을 7% 비우기
 
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
 st.pyplot(fig)
