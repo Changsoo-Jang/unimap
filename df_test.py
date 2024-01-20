@@ -108,6 +108,8 @@ fig.set_figheight(50)  # 적절한 세로 크기로 설정
 fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
 bars = ax.bar(data_df['등급'], data_df['학교명'])
 
+ax.set_ylabel(uName_list[0], fontproperties=prop9)
+
 plt.xlabel('대학 클래스', fontproperties=prop18)
 plt.ylabel('학교명', fontproperties=prop18)
 
