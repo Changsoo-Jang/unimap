@@ -47,7 +47,6 @@ components.html("""
     
 #     st.dataframe(tips)
     
-
 # if __name__ == "__main__":
 #     main()
 # fpath = os.path.join(os.getcwd(), 'NanumGothic.ttf')
@@ -71,14 +70,13 @@ components.html("""
 
 
 
-
-
 fpath1 = './NanumGothic.ttf'
 fpath2 = 'C:\\Windows\\Fonts\\NanumGothicBold.ttf'
 fpath3 = './NotoSansKR-Regular.ttf'
 prop30 = fm.FontProperties(fname=fpath2 , size=30)
 prop18 = fm.FontProperties(fname=fpath1 , size=18)
 prop9 = fm.FontProperties(fname=fpath1 , size=9)
+prop8 = fm.FontProperties(fname=fpath3 , size=8)
 font_name = fm.FontProperties(fname=fpath1, size=10).get_name()
 
 kor_ft = {'font': fpath3}
@@ -117,17 +115,17 @@ st.dataframe(data_df, use_container_width=True)
 fig, ax = plt.subplots()
 fig.set_figheight(50)  # 적절한 세로 크기로 설정
 fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
-# bars = ax.bar(data_df['등급'], data_df['학교명'])
-bars = ax.bar(uGrade_list, uName_list)
-
+bars = ax.bar(data_df['등급'], data_df['학교명'])
+#bars = ax.bar(uGrade_list, uName_list)
 
 # x축과 y축 레이블에 한글 폰트 적용
-ax.set_xticklabels(uGrade_list, fontproperties=prop9)
-ax.set_yticklabels(uName_list, fontproperties=prop9)
+# ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
+# ax.set_yticklabels(data_df['학교명'], fontproperties=prop8)
 
 ##   그래프가 여러개 인 경우
 # ax.set_xlabel(uGrade_list[0], fontproperties=prop18)
 # ax.set_ylabel(uName_list[0], fontproperties=prop18)
+
 ##   그래프가 하나인 경우
 plt.xlabel('대학 클래스', fontproperties=prop18)
 plt.ylabel('학교명', fontproperties=prop18)
