@@ -103,12 +103,12 @@ bars = ax.bar(data_df['등급'], data_df['학교명'])
 #bars = ax.bar(uGrade_list, uName_list)
 
 # x축과 y축 눈금의 위치 설정
-ax.set_xticks(range(len(data_df['등급'])))
-ax.set_yticks(range(len(data_df['학교명'])))
+# ax.set_xticks(range(len(data_df['등급'])))
+# ax.set_yticks(range(len(data_df['학교명'])))
 
 # x축과 y축 레이블에 한글 폰트 적용
-ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
-ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
+# ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
+# ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
 
 
 ##   그래프가 여러개 인 경우
