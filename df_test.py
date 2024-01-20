@@ -82,8 +82,8 @@ kor_ft = {'font': fpath3}
 
 # plt.rc('font', family='NanumGothic')
 # plt.rcParams["font.family"] = 'NanumGothic'
-plt.rcParams['font.family'] = 'Noto Sans KR'
-
+# plt.rcParams['font.family'] = 'Noto Sans KR'
+plt.rcParams['font.family'] = 'Noto Sans KR', 'sans serif'
 plt.rcParams['axes.unicode_minus'] = False
 
 ########################################################################
