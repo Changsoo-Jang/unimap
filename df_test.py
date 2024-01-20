@@ -67,12 +67,15 @@ components.html("""
 
 #####################################
 # ## 한글 폰트 설정
+
+# plt.rcParams["font.family"] = 'NanumGothic'
+
 fpath1 = './NanumGothic.ttf'
 fpath2 = 'C:\\Windows\\Fonts\\NanumGothicBold.ttf'
 prop30 = fm.FontProperties(fname=fpath2 , size=30)
 prop18 = fm.FontProperties(fname=fpath1 , size=18)
 prop9 = fm.FontProperties(fname=fpath1 , size=9)
-plt.rcParams["font.family"] = 'NanumGothic'
+plt.rcParams['font.NanumGothic']
 plt.rcParams['axes.unicode_minus'] = False
 # print(plt.rcParams["font.family"])
 ########################################################################
@@ -103,15 +106,9 @@ fig, ax = plt.subplots()
 fig.set_figheight(50)  # 적절한 세로 크기로 설정
 fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
 bars = ax.bar(data_df['등급'], data_df['학교명'])
+
 plt.xlabel('대학 클래스', fontproperties=prop18)
-# custom_css = """
-# <style>
-#     body {
-#         font-family: 'NanumGothic', sans-serif;
-#     }
-# </style>
-# """
-# st.markdown(custom_css, unsafe_allow_html=True)
+plt.ylabel('학교명', fontproperties=prop18)
 
 for i, bar in enumerate(bars):
     yval = bar.get_height()
