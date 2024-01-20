@@ -68,16 +68,17 @@ components.html("""
 #####################################
 # ## 한글 폰트 설정
 
-# plt.rcParams["font.family"] = 'NanumGothic'
-
 fpath1 = './NanumGothic.ttf'
 fpath2 = 'C:\\Windows\\Fonts\\NanumGothicBold.ttf'
 prop30 = fm.FontProperties(fname=fpath2 , size=30)
 prop18 = fm.FontProperties(fname=fpath1 , size=18)
 prop9 = fm.FontProperties(fname=fpath1 , size=9)
-plt.rcParams['font.NanumGothic']
+font_name = fm.FontProperties(fname=fpath1, size=10).get_name()
+plt.rc('font', family=font_name)
+
+# plt.rcParams["font.family"] = 'NanumGothic'
 plt.rcParams['axes.unicode_minus'] = False
-# print(plt.rcParams["font.family"])
+
 ########################################################################
 uni_m_f_path = r"4년제일반대학교_등록금_좌표.xlsx"
 uni_m_df = pd.read_excel(uni_m_f_path,engine='openpyxl', header=0)
