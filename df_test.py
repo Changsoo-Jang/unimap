@@ -8,6 +8,15 @@ from matplotlib import font_manager as fm
 
 
 ##################################################################
+import streamlit.components.v1 as components
+
+components.html("""
+    <style>
+    body {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+    </style>
+    """, height=0)
 
 # def unique(list):
 #     x = np.array(list)
@@ -79,14 +88,14 @@ fig.set_figheight(50)  # 적절한 세로 크기로 설정
 fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
 bars = ax.bar(data_df['등급'], data_df['학교명'])
 
-custom_css = """
-<style>
-    body {
-        font-family: 'NanumGothic', sans-serif;
-    }
-</style>
-"""
-st.markdown(custom_css, unsafe_allow_html=True)
+# custom_css = """
+# <style>
+#     body {
+#         font-family: 'NanumGothic', sans-serif;
+#     }
+# </style>
+# """
+# st.markdown(custom_css, unsafe_allow_html=True)
 
 for i, bar in enumerate(bars):
     yval = bar.get_height()
