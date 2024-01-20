@@ -79,6 +79,15 @@ fig.set_figheight(50)  # 적절한 세로 크기로 설정
 fig.set_figwidth(10)   # 가로 크기를 20 인치로 설정
 bars = ax.bar(data_df['등급'], data_df['학교명'])
 
+custom_css = """
+<style>
+    body {
+        font-family: 'NanumGothic', sans-serif;
+    }
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
 for i, bar in enumerate(bars):
     yval = bar.get_height()
     ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', fontsize=9, rotation=45)
@@ -86,3 +95,4 @@ for i, bar in enumerate(bars):
 
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
 st.pyplot(fig)
+
