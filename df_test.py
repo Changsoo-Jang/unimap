@@ -64,7 +64,7 @@ from matplotlib import font_manager as fm
 # print ('설정파일 위치: ', mpl.matplotlib_fname())
 
 #####################################
-# ## 한글 폰트 설정
+# ## 한글 폰트 설정  :   그래프 내부에 적용하기 위함
 fpath1 = './NanumGothic.ttf'
 fpath2 = './NanumGothicBold.ttf'
 fpath3 = './NotoSansKR-Regular.ttf'
@@ -77,7 +77,7 @@ font_name = fm.FontProperties(fname=fpath1, size=10).get_name()
 # plt.rc('font', family='NanumGothic')
 # plt.rcParams["font.family"] = 'NanumGothic'
 # plt.rcParams['font.family'] = 'Noto Sans KR'
-#plt.rcParams['font.family'] = 'Noto Sans KR', 'sans serif'      ##  전역 한글폰트 설정,   .streamlit/config.toml  안에    font-family : sans serif ; 산세리프체가 기본이므로   font-family 을 삭제함.
+# plt.rcParams['font.family'] = 'Noto Sans KR', 'sans serif'    ##  전역 한글폰트 설정으로  로컬에서만 적용됨 배포시에는 적용이 안됨,   .streamlit/config.toml  안에    font-family : sans serif ; 산세리프체가 기본이므로   font-family 을 삭제함.
 plt.rcParams['axes.unicode_minus'] = False                      ##  한글폰트적용으로 음수값이 깨지는 문제 해결을 위한 코드
 
 ########################################################################
@@ -103,11 +103,13 @@ bars = ax.bar(data_df['등급'], data_df['학교명'], bottom = 8)    # bottom =
 # x축과 y축 눈금의 위치 설정
 ## ax.set_xticks(range(len(data_df['등급'])))                   # x축 눈금의 위치를 0부터 1씩 증가하도록 설정  현재는 숫자 값이 아니라서 에러 발생
 ax.set_yticks(range(len(data_df['학교명'])))
- ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
+
+## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 # x축과 y축 세부 요소에 한글 폰트 적용    
 # ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
 ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
- ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
+## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
+
 # y축 레이블 설정 한글폰트 적용
 # x축 레이블 설정 한글폰트 적용
 ##   그래프가 여러개 인 경우
@@ -129,6 +131,7 @@ for i, bar in enumerate(bars):
 ## 2번 위치
 # ax.set_yticks(range(len(data_df['학교명'])))
 # ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
+
 plt.ylim(0,bar.get_height() * 1.07)  # 상단을 7% 비우기
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
 st.pyplot(fig)
