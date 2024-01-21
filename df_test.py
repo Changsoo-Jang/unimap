@@ -77,7 +77,7 @@ font_name = fm.FontProperties(fname=fpath1, size=10).get_name()
 # plt.rc('font', family='NanumGothic')
 # plt.rcParams["font.family"] = 'NanumGothic'
 # plt.rcParams['font.family'] = 'Noto Sans KR'
-plt.rcParams['font.family'] = 'Noto Sans KR', 'sans serif'      ##  전역 한글폰트 설정,   .streamlit/config.toml  안에    font-family : sans serif ; 산세리프체가 기본이므로   font-family 을 삭제함.
+#plt.rcParams['font.family'] = 'Noto Sans KR', 'sans serif'      ##  전역 한글폰트 설정,   .streamlit/config.toml  안에    font-family : sans serif ; 산세리프체가 기본이므로   font-family 을 삭제함.
 plt.rcParams['axes.unicode_minus'] = False                      ##  한글폰트적용으로 음수값이 깨지는 문제 해결을 위한 코드
 
 ########################################################################
