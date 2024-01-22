@@ -108,7 +108,7 @@ bars = ax.bar(data_df['등급'], data_df['학교명'])    # bottom = 8 : 막대�
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 # x축과 y축 세부 요소에 한글 폰트 적용    
 # ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
-# ax.set_yticklabels(data_df['학교명'], fontproperties=prop8)
+ax.set_yticklabels(data_df['학교명'], fontproperties=prop8)
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 
 # y축 레이블 설정 한글폰트 적용
@@ -128,7 +128,7 @@ for i, bar in enumerate(bars):
     # va: vertical alignment                    # ha value for align; 'center', 'right', 'left'
 
 ### streamlit run df_test.py 을 실행하기 전 로컬에서 실행되는지 확인하기 위해서 plt.show()를 호출함 실제 실행 화면과는 다름
-plt.show()
+# plt.show()
 
 ## 2번 위치
 # ax.set_yticks(range(len(data_df['학교명'])))
