@@ -108,7 +108,7 @@ ax.set_yticks(range(len(data_df['학교명']),2))
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 # x축과 y축 세부 요소에 한글 폰트 적용    
 # ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
-ax.set_yticklabels(data_df['학교명'], fontproperties=prop8)
+ax.set_yticklabels(data_df['학교명'][::2], fontproperties=prop8)
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 
 # y축 레이블 설정 한글폰트 적용
