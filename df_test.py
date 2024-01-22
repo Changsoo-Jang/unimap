@@ -93,22 +93,24 @@ st.title('전국 4년제 대학 레벨 :red[2024년] 기준')
 st.dataframe(data_df, use_container_width=True)                 ###   True : 기본 확장으로 화면중앙에 어느정도 크기로 보여줌,  False : 매우 좁아짐(True, 에 비해 좁은 화면) 
 
 fig, ax = plt.subplots()                                        # 그래프를 그리기 위한 플롯 객체 생성
-fig.set_figheight(50)                                           # 적절한 세로 크기를 50 인치로 설정
+fig.set_figheight(60)                                           # 적절한 세로 크기를 50 인치로 설정
 fig.set_figwidth(10)                                            # 적절한 가로 크기를 20 인치로 설정
 
-bars = ax.bar(data_df['등급'], data_df['학교명'])    # bottom = 8 : 막대그래프의 시작점을 8로 설정 , 가로축이 등급이고, 세로축이 학교명임
-# bars = ax.bar(data_df['등급'], data_df['학교명'], bottom = 8)    # bottom = 8 : 막대그래프의 시작점을 8로 설정 , 가로축이 등급이고, 세로축이 학교명임
+bars = ax.bar(data_df['등급'], data_df['학교명'])                # bottom = 8 : 막대그래프의 시작점을 8로 설정 , 가로축이 등급이고, 세로축이 학교명임
+# bars = ax.bar(data_df['등급'], data_df['학교명'], bottom = 8)  # bottom = 8 : 막대그래프의 시작점을 8로 설정 , 가로축이 등급이고, 세로축이 학교명임
 # bars = ax.barh(data_df['학교명'], data_df['등급'])             # barh : 가로 막대그래프
 
 ## 1번 위치
 # x축과 y축 눈금의 위치 설정
-## ax.set_xticks(range(len(data_df['등급'])))                   # x축 눈금의 위치를 0부터 1씩 증가하도록 설정  현재는 숫자 값이 아니라서 에러 발생
-ax.set_yticks(range(len(data_df['학교명']),2))
+# ax.set_xticks(range(len(data_df['등급'])))                   # x축 눈금의 위치를 0부터 1씩 증가하도록 설정  현재는 숫자 값이 아니라서 에러 발생
+# yticks = range(0, len((data_df['학교명'])), 2)
+# ax.set_yticks(yticks)
+ax.set_yticks(range(len(data_df['학교명'])))
 
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 # x축과 y축 세부 요소에 한글 폰트 적용    
-# ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
-ax.set_yticklabels(data_df['학교명'][::2], fontproperties=prop8)
+ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
+# ax.set_yticklabels(data_df['학교명'][yticks], fontproperties=prop9)
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 
 # y축 레이블 설정 한글폰트 적용
@@ -117,15 +119,14 @@ ax.set_yticklabels(data_df['학교명'][::2], fontproperties=prop8)
 # ax.set_xlabel(uGrade_list[0], fontproperties=prop18)
 # ax.set_ylabel(uName_list[0], fontproperties=prop18)
 ##   그래프가 하나인 경우
-plt.xlabel('[등급]            ', fontproperties=prop18)         
+plt.xlabel('[등 급]           ', fontproperties=prop18)         
 plt.ylabel('학교명', fontproperties=prop18)                     
 
-
 for i, bar in enumerate(bars):
-    # yval = bar.get_height() * 1.06              #  막대그래프의 높이 1.06배 위치에서 텍스트를 출력함
-    yval = bar.get_height()              #  막대그래프의 높이 1.06배 위치에서 텍스트를 출력함
+    # yval = bar.get_height() * 1.06                #  막대그래프의 높이 1.06배 위치에서 텍스트를 출력함
+    yval = bar.get_height()                         #  막대그래프의 높이 1.06배 위치에서 텍스트를 출력함
     ax.text(bar.get_x(), yval, s=data_df['학교명'][i], va='bottom', color='RED', rotation=45, fontproperties=prop9)     ## 막대그래프의 x축 위치, y축 위치, s = 텍스트
-    # va: vertical alignment                    # ha value for align; 'center', 'right', 'left'
+    # va: vertical alignment                        # ha value for align; 'center', 'right', 'left'
 
 ### streamlit run df_test.py 을 실행하기 전 로컬에서 실행되는지 확인하기 위해서 plt.show()를 호출함 실제 실행 화면과는 다름
 # plt.show()
@@ -134,8 +135,8 @@ for i, bar in enumerate(bars):
 # ax.set_yticks(range(len(data_df['학교명'])))
 # ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
 
-plt.ylim(0,bar.get_height() * 1.07)  # 상단을 7% 비우기
-# plt.ylim(0,bar.get_height())  # 상단을 7% 비우기
+plt.ylim(0,bar.get_height() * 1.07)                 # 상단을 7% 비우기
+# plt.ylim(0,bar.get_height())                      # 상단을 7% 비우기
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
 st.pyplot(fig)
 
