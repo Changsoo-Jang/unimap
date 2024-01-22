@@ -134,7 +134,7 @@ for i, bar in enumerate(bars):
 # ax.set_yticks(range(len(data_df['학교명'])))
 # ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
 
-plt.ylim(0,bar.get_height() * 1.07)  # 상단을 7% 비우기
+plt.ylim(0,bar.get_height() * 1.01)  # 상단을 7% 비우기
 # plt.ylim(0,bar.get_height())  # 상단을 7% 비우기
 st.markdown('<h1 style="font-size:20px; text-align:center">4년제 일반대학교 클래스 등급별 학교명</h1>', unsafe_allow_html=True)
 st.pyplot(fig)
