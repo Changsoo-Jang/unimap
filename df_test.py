@@ -105,13 +105,13 @@ bars = ax.bar(data_df['등급'], data_df['학교명'])                # bottom =
 # ax.set_xticks(range(len(data_df['등급'])))                   # x축 눈금의 위치를 0부터 1씩 증가하도록 설정  현재는 숫자 값이 아니라서 에러 발생
 # yticks = range(0, len((data_df['학교명'])), 2)
 # ax.set_yticks(yticks)
-ax.set_yticks(range(len(data_df['학교명'])))
+# ax.set_yticks(range(len(data_df['학교명'])))
 
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 # x축과 y축 세부 요소에 한글 폰트 적용    
 # ax.set_xticklabels(data_df['등급'], fontproperties=prop9)
 # ax.set_yticklabels(data_df['학교명'][yticks], fontproperties=prop9)
-ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
+# ax.set_yticklabels(data_df['학교명'], fontproperties=prop9)
 ## ===============================  한글폰트 적용을 위한 코드 Streamlit  Deploy 과정 에서 한글폰트 안되는 문제 이것으로 해결
 
 # y축 레이블 설정 한글폰트 적용
